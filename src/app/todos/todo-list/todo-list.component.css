@@ -1,0 +1,15 @@
+img {
+  width: 100px;
+  height: 100px;
+}
+li {
+  margin: 10px;
+}
+textarea {
+  margin: 1px;
+}
+.hr-text {
+  position: relative;
+  color: white;
+  text-align: center;
+}

@@ -1,0 +1,26 @@
+<div class="text-center">
+  <p></p>
+  <div class="btn input-group bg-primary">
+    <label class="fs-2 text-light">Add new Todo</label>
+  </div>
+  <p></p>
+  <div class="input-group input-group-sm btn-group">
+    <label class="bg-warning btn-sm">todo Before ..</label>
+    <input type='datetime-local' class="input-group-text"
+           [value]="beforeValue()"
+           [(ngModel)]="todoBefore">
+    <input type="text" class="input-group-text bg-white"
+           placeholder="Title here"
+           [(ngModel)]="title"
+           (keyup.enter)="addItem()">
+    <button type="button" class="btn btn-success btn-sm"
+            (click)="addItem()" >Add todo</button>
+  </div>
+  <div class="input-group input-group-lg">
+          <textarea type="text" class="form-control bg-white"
+                    placeholder="Type todo ..."
+                    [(ngModel)]="value"
+                    (keyup.enter)="addItem()" ></textarea>
+  </div>
+
+</div>
