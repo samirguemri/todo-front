@@ -1,40 +1,38 @@
 <div class="text-center">
-  <div class="text-center">
-    <div *ngIf="todos.length !== 0" class="btn input-group bg-primary">
-      <label class="fs-2 text-light">List of Todos</label>
-    </div>
-    <ul class="list-group">
-      <li class="list-group-item bg-success" style="border: 0px;"
-          *ngFor="let todo of todos"
-          [ngClass]="{'bg-danger':!todo.done}">
-        <div class="row">
-          <div class="form-check col-1">
-            <input type="checkbox" class="form-check-input"
-                   [(ngModel)]="todo.done"
-                   (click)="isDone(todo)">
-          </div>
-          <div class="col-11 input-group-lg">
-            <div class="input-group input-group-sm">
-              <input type="text" class="form-control text-center"
-                     [(ngModel)]="todo.title"
-                     (keyup.enter)="updateTodo(todo)">
-              <input type="text" class="form-control text-center"
-                     [(ngModel)]="todo.todoBefore"
-                     readonly>
-              <button type="button" class="btn btn-lg btn-success border-light"
-                      (click)="updateTodo(todo)">Edit todo
-              </button>
-              <button type="button" class="btn btn-lg btn-danger border-light"
-                      (click)="deleteItem(todo.id)">Delete todo
-              </button>
-            </div>
-            <textarea type="text" class="form-control"
-                      [(ngModel)]="todo.value"
-                      (keyup.enter)="updateTodo(todo)"></textarea>
-          </div>
-        </div>
-      </li>
-    </ul>
+  <div *ngIf="todos.length !== 0" class="btn btn-sm input-group input-group-sm bg-primary">
+    <label class="fs-3 text-light">List of Todos</label>
   </div>
+  <ul class="list-group">
+    <li class="list-group-item bg-success" style="border: 0px;"
+        *ngFor="let todo of todos"
+        [ngClass]="{'bg-danger':!todo.done}">
+      <div class="row">
+        <div class="form-check col-1">
+          <input type="checkbox" class="form-check-input"
+                 [(ngModel)]="todo.done"
+                 (click)="isDone(todo)">
+        </div>
+        <div class="col-11 input-group-lg">
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control text-center"
+                   [(ngModel)]="todo.title"
+                   (keyup.enter)="updateTodo(todo)">
+            <input type="text" class="form-control text-center"
+                   [(ngModel)]="todo.todoBefore"
+                   readonly>
+            <button type="button" class="btn btn-lg btn-success border-light"
+                    (click)="updateTodo(todo)">Edit todo
+            </button>
+            <button type="button" class="btn btn-lg btn-danger border-light"
+                    (click)="deleteItem(todo.id)">Delete todo
+            </button>
+          </div>
+          <textarea type="text" class="form-control"
+                    [(ngModel)]="todo.value"
+                    (keyup.enter)="updateTodo(todo)"></textarea>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
 

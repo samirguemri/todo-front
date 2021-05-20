@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container">
     <a href="/home" class="navbar-brand fs-2 text-primary">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check2-square"
@@ -7,30 +7,14 @@
           d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"></path>
         <path
           d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"></path>
-      </svg> Todo App</a>
-    <div class="d-flex ml-auto">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#globalNavbar"
-              aria-controls="globalNavbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="globalNavbar">
-      <ul class="navbar-nav d-lg-none">
-        <li class="nav-item-divider"></li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://themes.getbootstrap.com/signin/">Sign in</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://themes.getbootstrap.com/my-account/">Sign up</a>
-        </li>
-      </ul>
+      </svg>
+      Todo App</a>
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav">
+        <a class="nav-link text-dark" href="/login">Login</a>
+        <a class="nav-link text-dark" href="/register">Register</a>
+      </div>
     </div>
   </div>
 </nav>
-<div class="container">
-  <app-new-todo></app-new-todo>
-  <br>
-  <hr class="hr-text" data-content="">
-  <br>
-  <app-todo-list></app-todo-list>
-</div>
+<router-outlet></router-outlet>
