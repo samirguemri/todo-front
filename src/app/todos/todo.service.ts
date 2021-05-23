@@ -13,38 +13,30 @@ export class TodoService {
   constructor(private http: HttpClient) {
   }
 
-  public getTodoById(id: number): void {
-    this.http.get(`${this.url}/todo/${id}`).subscribe(data => {
-      console.log(data);
-    });
-  }
-
   public getTodoByUser(user: string): void {
     this.http.get(`${this.url}/todo/${user}`).subscribe(data => {
       console.log(data);
     });
   }
 
+  public getTodoById(id: number): Observable<Todo> {
+    return this.http.get<Todo>(`${this.url}/todo/${id}`);
+  }
+
   public getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${this.url}/todo/all`,
-                                {observe: 'body', responseType: 'json'});
+    return this.http.get<Todo[]>(`${this.url}/todo/all`);
   }
 
   public addTodo(todo: Todo): Observable<Todo[]> {
-    return this.http.post<Todo[]>(`${this.url}/todo/add`,
-                                  todo,
-                                  {observe: 'body', responseType: 'json'});
+    return this.http.post<Todo[]>(`${this.url}/todo/add`, todo);
   }
 
   public updateTodo(todo: Todo): Observable<Todo[]> {
-    return this.http.put<Todo[]>(`${this.url}/todo/update`,
-                                  todo,
-                                  {observe: 'body', responseType: 'json'});
+    return this.http.put<Todo[]>(`${this.url}/todo/update`, todo);
   }
 
   public deleteTodo(id: number): Observable<Todo[]> {
-    return this.http.delete<Todo[]>(`${this.url}/todo/delete/${id}`,
-                                  {observe: 'body', responseType: 'json'});
+    return this.http.delete<Todo[]>(`${this.url}/todo/delete/${id}`);
   }
 
 }

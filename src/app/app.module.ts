@@ -14,10 +14,14 @@ import {NewTodoComponent} from './todos/new-todo/new-todo.component';
 import {RouterModule, Routes} from '@angular/router';
 import {RegisterComponent} from './authentication/register/register.component';
 import {PageNotFoundComponent} from './_components/page-not-found/page-not-found.component';
+import {ProfileComponent} from './user/profile/profile.component';
+import {UserService} from './user/user.service';
 
 const appRoutes: Routes = [
+    {path: '', redirectTo: '/login', pathMatch: 'full' },
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'profile', component: ProfileComponent},
     {path: '**', component: PageNotFoundComponent}
   ]
 ;
@@ -30,7 +34,8 @@ const appRoutes: Routes = [
     TodoListComponent,
     NewTodoComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,7 @@ const appRoutes: Routes = [
       {enableTracing: true} // <-- debugging purposes only
     )
   ],
-  providers: [TodoService, DatePipe, CustomDatePipe],
+  providers: [UserService, TodoService, DatePipe, CustomDatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
